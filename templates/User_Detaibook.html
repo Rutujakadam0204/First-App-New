@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Book</title>
+
+<style>
+button {
+   float:center;
+   height:50px;
+   width:120px;
+   background-color:grey;
+   border:None;
+   color:black;
+   font-size:17px;
+}
+
+button:hover{
+    background-color:wheat;
+}
+</style>
+
+</head>
+<div style="text-align:left;height:50px;background-color:grey;">
+    <button onclick="location.href='{%url 'display'%}'">HOME</button>
+    <button onclick="location.href='{%url 'viewcart'%}'">MY CART</button>
+    <button onclick="location.href='{%url 'logout'%}'" style="float:right;">LOGOUT</button>
+</div>
+<body>
+<center>
+    <div style="width:500px;background-color:wheat;">
+        {%for i in Book%}
+            <h1>{{i.title}}</h1><br>
+            <img src="{{i.image.url}}" width="350px" height="500px"><br>
+            <b>Rs. {{i.price}}</b><br>
+            Description: {{i.desc}}
+        {%endfor%}
+    </div>
+</center>
+</body>
+</html>

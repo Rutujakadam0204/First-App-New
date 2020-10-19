@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=email], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+.button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-bottom: 16px;
+}
+
+
+</style>
+</head>
+<body>
+
+<center><h2>Modal Login Form</h2></center>
+
+<div>
+
+  <form method="post">
+      {%csrf_token%}
+      <center>
+          <div class="container">
+              <input type="email" placeholder="Enter Registered Email" name="email" required><br><br>
+              <input type="password" placeholder="Enter Password" name="password" required><br>
+              <input type="submit" value="Login">
+          </div>
+      </center>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <input type="reset" class="cancelbtn">
+      <span class="psw"><h3> If not registered then click on <a href="register">Register</a></h3></span>
+    </div>
+  </form>
+</div>
+
+
+
+</body>
+</html>

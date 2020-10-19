@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+.div1 {
+    padding:10px 10px 10px 10px;
+    height:80px;
+    background-color:grey;
+}
+
+.div2 {
+    float:left;
+    color:black;
+}
+
+
+button {
+   float:center;
+   height:80px;
+   width:360px;
+   background-color:grey;
+   color:black;
+   border:None;
+   margin-left:0.0em;
+   font-size:19px;
+}
+
+button:hover{
+    background-color:white;
+}
+
+img { width:200px;
+    height:300px;
+}
+
+</style>
+</head>
+<div style="background-color:"
+<body>
+    {%block links%}
+        <center class="div1">
+            <button onclick="location.href='{%url 'Admin_display'%}'">DISPLAY BOOKS</button>
+            <button onclick="location.href='{%url 'add_book'%}'">ADD BOOKS</button>
+            <button onclick="location.href='{%url 'add_genre'%}'">ADD GENRE</button>
+            <button onclick="location.href='{%url 'Admin_logout'%}'">LOGOUT</button>
+        </center>
+    {%endblock%}
+
+    <div class="div2">
+        {%for i in book_disp%}
+            <div style="float:left;margin: 1.5em 0.4em 0.9em;">
+                <img src="{{i.image.url}}"><br>
+                {{i.title}}<br>
+                Rs.{{i.price}}<br>
+                genre:<br>
+                {%for k in i.genre.all%}
+                {{k.title}},
+                {%endfor%}<br>
+                <b>{%if i.available is True%}Is Available{%else%}Not Available{%endif%}</b><br>
+                <a href="{%url 'edit_book' i.title%}">EDIT</a>
+                <a href="{%url 'delete_book' i.id%}">DELETE</a>
+            </div>
+        {%endfor%}
+    </div>
+
+</body>
+</html>

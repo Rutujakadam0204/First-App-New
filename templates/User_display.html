@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+<style>
+
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+  color:White;font-size:40px;font-weight:bold;
+}
+
+
+button {
+   float:center;
+   height:60px;
+   width:120px;
+   background-color:grey;
+   border:None;
+   color:white;
+   font-size:17px;
+}
+
+button:hover{
+    background-color:black;
+}
+
+</style>
+</head>
+
+<div style="text-align:left;height:60px;background-color:grey;">
+    <button onclick="location.href='{%url 'display'%}'">HOME</button>
+    <button onclick="location.href='{%url 'viewcart'%}'">MY CART</button>
+    <button onclick="location.href='{%url 'logout'%}'" style="float:right;">LOGOUT</button>
+</div>
+
+
+<body>
+<!-- Back ground image and text on it -->
+<div style="height:270px;background-color:black;">
+    <h3 class="bg-text">WELCOME TO LIBRARY<br>
+        {{request.session.username}}
+    </h3>
+</div>
+
+<div style="height:63px;background-color:grey;">
+    <button onclick="location.href='{%url 'display'%}'">All Books</button>
+    {%for i in genre%}
+        <button onclick="location.href='{%url 'display_title' i.title%}'">{{i.title}}</button>
+    {%endfor%}
+</div><br>
+
+
+<!-- Books Display -->
+<div>
+    {% for i in books %}
+        <div style="float:left;margin:0.8em 0.7em 0.8em 0.6em;">
+            <center>
+                <br><img src="{{i.image.url}}" width="225" height="275"><br>
+                <a href="{%url 'detail' i.title%}">{{i.title}}</a><br>
+                Rs. {{i.price}}<br>
+                <button onclick="location.href='{%url 'mycart' i.title%}'" style="height:40px;width:225px;">Add to Cart</button>
+            </center>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

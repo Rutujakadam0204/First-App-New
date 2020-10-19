@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Add Book</title>
+<style>
+
+body{background-color:wheat;}
+input[type=text],[type=number]{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 3px solid black;
+  box-sizing: border-box;
+}
+
+.div1 {
+    padding:10px 10px 10px 10px;
+    height:80px;
+    background-color:grey;
+}
+
+button {
+   float:center;
+   height:80px;
+   width:480px;
+   background-color:grey;
+   color:black;
+   border:None;
+   margin-left:0.0em;
+   font-size:19px;
+}
+
+button:hover{
+    background-color:white;
+}
+
+
+</style>
+</head>
+
+<body>
+    {%block links%}
+        <center class="div1">
+            <button onclick="location.href='{%url 'Admin_display'%}'">DISPLAY BOOKS</button>
+            <button onclick="location.href='{%url 'add_book'%}'">ADD BOOKS</button>
+            <button onclick="location.href='{%url 'add_genre'%}'">ADD GENRE</button>
+        </center>
+    {%endblock%}
+    <center style="margin-top:1em;font-size:35px;"> <u>Add New Book</u></center><br>
+
+    <div style="margin-left:35em;">
+        <form method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            {%for i in form%}
+            <h3>{{i.label}}:</h3>
+                {{i}}
+            {%endfor%}
+        <br><input type="submit">
+        </form>
+    </div>
+
+</body>
+</html>

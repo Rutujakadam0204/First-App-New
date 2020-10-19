@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Cart</title>
+<style>
+
+button {
+   float:center;
+   height:50px;
+   width:120px;
+   background-color:grey;
+   border:None;
+   color:black;
+   font-size:17px;
+}
+
+button:hover{
+    background-color:wheat;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width:50%;
+  text-align:center;
+}
+</style>
+
+</head>
+<body style="background-color:wheat;">
+<div style="text-align:left;height:50px;background-color:grey;">
+    <button onclick="location.href='{%url 'display'%}'">HOME</button>
+    <button onclick="location.href='{%url 'viewcart'%}'">MY CART</button>
+    <button onclick="location.href='{%url 'logout'%}'" style="float:right;">LOGOUT</button>
+</div>
+<div style="height:200px;text-align:center;"><h1>Welcome to Your</h1> <h1>cart !!!</h1></div>
+<center>
+<table>
+    <tr>
+        <th>Book Name</th>
+        <th>Rupees</th>
+        <th>Remove from cart</th>
+    </tr>
+    {%for i in mycart%}
+        {%for j in i.books.all%}
+            <tr style="border:1px solid black">
+                <td>{{j.title}}</td>
+                <td>{{j.price}}</td>
+                <td><a href="{%url 'remove' j.id%}">Remove Book</a></td>
+            </tr>
+        {%endfor%}
+    {%endfor%}
+    <tr>
+        <td>Total Amount</td>
+        <td><p id="demo"></p></td>
+        <td><a href="#">Pay</a></td>
+    </tr>
+</table>
+</center>
+
+<script>var x = 0;</script>
+<script>
+{%for i in mycart%}
+    {%for j in i.books.all%}
+        var x = {{j.price}} + x;
+    {%endfor%}
+{%endfor%}
+document.getElementById("demo").innerHTML = x;
+</script>
+
+
+</body>
+</html>
