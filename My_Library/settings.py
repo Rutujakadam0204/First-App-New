@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'rutujakadam0204$product',
         'USERNAME': 'rutujakadam0204',
         'PASSWORD': 'root@1998',
-        'HOST' : 'rutujakadam0204.mysql.pythonanywhere-services.com'
+        'HOST' : ''/var/run/mysql''
        
     }
 }
