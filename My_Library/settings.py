@@ -77,10 +77,11 @@ WSGI_APPLICATION = 'My_Library.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'product',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'PORT': '3306',
+        'NAME': 'rutujakadam0204$product',
+        'USERNAME': 'rutujakadam0204',
+        'PASSWORD': 'root@1998',
+        'HOST' : 'rutujakadam0204.mysql.pythonanywhere-services.com'
+       
     }
 }
 
