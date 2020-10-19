@@ -79,9 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'rutujakadam0204$product',
         'USERNAME': 'rutujakadam0204',
-        'PASSWORD': 'root@1998',
-        'HOST' : ''/var/run/mysql''
-       
+        'PASSWORD': 'root@1998',       
     }
 }
 
