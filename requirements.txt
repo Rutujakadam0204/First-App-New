@@ -1,10 +1,5 @@
 Django==3.1.2
 mysqlclient==2.0.1
-opencv-python==4.4.0.44
-openpyxl @ file:///tmp/build/80754af9/openpyxl_1594167385094/work
-pickleshare==0.7.5
 Pillow @ file:///C:/ci/pillow_1594298230227/work
-python-dateutil==2.8.1
-python-jsonrpc-server @ file:///tmp/build/80754af9/python-jsonrpc-server_1594397536060/work
 python-language-server @ file:///C:/ci/python-language-server_1594162130238/work
 virtualenv==20.0.35
