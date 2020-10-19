@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'My_Library.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rutujakadam0204$product',
-        'USERNAME': 'rutujakadam0204',
-        'PASSWORD': 'root@1998',       
+        'NAME': 'product',
+        'USER': 'root',
+        'PASSWORD': 'root',       
     }
 }
 
